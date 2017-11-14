@@ -37,17 +37,17 @@
         <div class="bmd-list">
           <ul style="padding:10px">
             <li class="bmd-listing">
-              <div class="wi-100 text-left">Patient name</div>
+              <div class="wi-100 text-left">Nome do paciente</div>
               <div class="wi-100 text-center">--</div>
               <div class="wi-100 text-right">{{userSession.name}}</div>
             </li>
             <li class="bmd-listing">
-              <div class="wi-100 text-left">Gender</div>
+              <div class="wi-100 text-left">Genero</div>
               <div class="wi-100 text-center">--</div>
-              <div class="wi-100 text-right">{{(userSession.gender==0) ? 'Not Specified' : (userSession.gender==1) ? 'Male' : 'Female' }}</div>
+              <div class="wi-100 text-right">{{(userSession.gender==0) ? 'Não especificado' : (userSession.gender==1) ? 'Masculino' : 'Feminino' }}</div>
             </li>
             <li class="bmd-listing">
-              <div class="wi-100 text-left">Appointment Time</div>
+              <div class="wi-100 text-left">Hora da consulta</div>
               <div class="wi-100 text-center">--</div>
               <div class="wi-100 text-right">{{AppointmentDetails.selectedDate}}</div>
             </li>
@@ -96,25 +96,25 @@
           </div>
         </div>
         <div class="bmd-appnmnt4-inner">
-          <h5>Will you use insurance ?</h5>
+          <h5>Qual seu plano de saúde?</h5>
           <select class="bmd-style" ng-model="insurance" ng-change="appinsurance(insurance)" >
             <option ng-repeat="option in AppointmentDetails.selectionDetails" value="{{option.id}}">{{option.name}}</option>
           </select>
 
-          <h5>What is the reason for your visit?</h5>
+          <h5>Qual a razão da sua vizita?</h5>
           <select id="srchReason" name="srchReason" ng-model="srchReason" ng-change="appreason(srchReason)" class="bmd-style">
-              <option selected="" value="0">Reason for Visit</option>
+              <option selected="" value="0">Razão da vizita</option>
               <option ng-repeat="option in AppointmentDetails.visit_categories" value="{{option.id}}">{{option.reason}}</option>
           </select>
 
-          <h5>Have you visited this doctor before?</h5>
+          <h5>Você já consultou com este médico antes?</h5>
           <div style="margin-top: 20px;">
             <input id="checkbox-1" class="checkbox-custom" name="patient" type="radio" >
-            <label for="checkbox-1" class="checkbox-custom-label"></label>I am a new Paitent<br>
+            <label for="checkbox-1" class="checkbox-custom-label"></label>Eu sou um novo paciente<br>
           </div>
           <div style="margin-bottom: 20px;">
             <input id="checkbox-2" class="checkbox-custom" name="patient" type="radio" >
-            <label for="checkbox-2" class="checkbox-custom-label"></label>I visted this doctor before<br>
+            <label for="checkbox-2" class="checkbox-custom-label"></label>Eu já consultei com esse médico antes<br>
           </div>
         </div>
         <div class="apnt_status" ng-bind="Appointment.response.msg" ng-if="Appointment.response.status==false">
@@ -134,10 +134,10 @@
           <img src="img/bmd-signinlogo.png">
         </div>
         <div class="bmd-bookng-cnfirmation">
-          <h1>BOOKING COMPLETED</h1>
-          <p><b>Your booking has been confirmed.<br>Thank you.</b></p> 
-          <a class="bmd-main-btn" href="#/app/my_booking">My Booking</a>
-          <a class="bmd-main-btn" href="#/app/bmd-home">Home</a>
+          <h1>AGENDAMENTO FINALIZADO</h1>
+          <p><b>Seu agendamento foi confirmado!<br>Obrigado.</b></p> 
+          <a class="bmd-main-btn" href="#/app/my_booking">Meus agendamentos</a>
+          <a class="bmd-main-btn" href="#/app/bmd-home">Página principal</a>
         </div>
       </div>
       <!-- Appointment success -->
