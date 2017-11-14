@@ -1,0 +1,71 @@
+<ion-modal-view class="sign_form">  
+  <ion-header-bar>
+    <button ng-click="closeSignup()" class="common-button button button-positive button-clear button_text ion-chevron-left txt-color-black"></button>
+    <div class="bmd-spclity-head">Cadastrar-se</div>
+  </ion-header-bar>
+	<ion-content class="theme-bg" ng-init="submitted=false">
+		<div class="bmd-title-logo">
+		<img src="img/bmd-signinlogo.png">
+		</div>
+		<form  name="signupform" ng-submit="signupform.$valid && doSignup()">
+		<div class="bmd-usr-wrapper">
+			<div class="error_block" ng-show="signupError==false">
+	          {{signupMessage}}
+	        </div>
+	        <div class="success_block" ng-show="signupError">
+	          {{signupMessage}}
+	        </div>
+		<div class="bmd-usr">
+			<div class="bmd-usr1"><img src="img/bmd-usr.png"></div>
+			<div class="bmd-usr2">
+			<input class="bmd-usr-input" name="firstname" type="text" placeholder="Primeiro nome" ng-model="signUpData.firstname" required>
+			</div>
+		</div>
+		<div class="bmd-field error" ng-show="submitted  && signupform.firstname.$error.required">Primeiro nome é obrigatório.</div>
+		<div class="bmd-usr">
+			<div class="bmd-usr1"><img src="img/bmd-usr.png"></div>
+			<div class="bmd-usr2">
+			<input class="bmd-usr-input" name="lastname" type="text" placeholder="Sobrenome" ng-model="signUpData.lastname" required>
+			</div>
+		</div>
+		<div class="bmd-field error" ng-show="submitted  && signupform.lastname.$error.required">Sobrenome é obrigatório.</div>
+		<div class="bmd-usr">
+			<div class="bmd-usr1"><img src="img/bmd-mail.png"></div>
+			<div class="bmd-usr2">
+			<input class="bmd-usr-input" name="email" type="email" placeholder="E-mail" ng-model="signUpData.email" required>
+			</div>
+		</div>
+		<div class="bmd-field error" ng-show="submitted  && signupform.email.$error.required">Email-Id é obrigatório.</div>
+		<div class="bmd-field error" ng-show="signupform.email.$touched && signupform.email.$invalid">E-mail inválido.</div>
+		<div class="bmd-usr">
+			<div class="bmd-usr1"><img src="img/bmd-pass.png"></div>
+			<div class="bmd-usr2">
+			<input class="bmd-usr-input" name="password" type="password" ng-minlength="6" placeholder="Senha" ng-model="signUpData.password" required>
+			</div>
+		</div>
+		<div class="bmd-field error" ng-show="submitted  && signupform.password.$error.required">Senha é obrigatória.</div>
+		<div class="bmd-field error" ng-show="signupform.password.$touched && signupform.password.$minlength">A senha deve conter ao menos 6 caracteres.</div>
+		<div class="bmd-usr">
+			<div class="bmd-usr1"><img src="img/bmd-phne.png"></div>
+			<div class="bmd-usr2">
+			<input class="bmd-usr-input" type="text" name="phone" placeholder="Celular" ng-model="signUpData.phone" ng-minlength="10"  ng-maxlength="10" required>
+			</div>
+		</div>
+		<div class="bmd-field error" ng-show="submitted  && signupform.phone.$error.required">Número do celular é obrigatório.</div>
+		<div class="bmd-field error" ng-show="signupform.phone.$touched && signupform.phone.$error.minlength">Número do celular deve ter 10 digitos.</div>
+		<div class="bmd-field error" ng-show="signupform.phone.$touched && signupform.phone.$error.maxlength">Número do celular deve ter 10 digitos.</div>
+		
+		<div style="display:inline-flex;width:100%;">
+			<input id="checkbox-terms" name="terms" class="checkbox-custom" name="checkbox-1" type="checkbox" checked="checked"  ng-model="terms" required>
+			<label for="checkbox-terms" class="checkbox-custom-label"></label><b style="padding-top:5px;">Eu aceito os termos do serviço.</b>
+		</div>
+		<div class="bmd-field error" ng-show="submitted  && signupform.terms.$error.required">Deve concordar com os rermos do serviço.</div>
+		<!-- <div class="bmd-field error" ng-show="signupform.terms.$dirty && signupform.terms.$error.required">Must agree the Terms and Conditions.</div> -->
+		<button class="bmd-main-btn"  ng-click="submitted=true">Cadastrar</button>
+
+		</div>
+	</form>
+
+	</ion-content>
+
+</ion-modal-view>
